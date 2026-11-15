@@ -1,5 +1,6 @@
 let currentCategory = 'all';
 
+// Category အလိုက် ရွေးချယ်ပြသခြင်း
 function setCategory(category, button) {
   currentCategory = category;
 
@@ -11,6 +12,7 @@ function setCategory(category, button) {
   applyFilters();
 }
 
+// Search Bar နှင့် Category တွဲဖက်စစ်ထုတ်ခြင်း
 function applyFilters() {
   const searchText = document.getElementById('searchInput').value.toLowerCase();
   const cards = document.querySelectorAll('.menu-card');
@@ -26,3 +28,22 @@ function applyFilters() {
     card.style.display = (matchesCategory && matchesSearch) ? 'flex' : 'none';
   });
 }
+
+// Menu အကွက်ကို နှိပ်သည့်အခါ နောက်ခံအလင်းတန်း လင်းပေးခြင်း
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.menu-card');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const isAlreadyGlowing = card.classList.contains('active-glow');
+
+      // အခြားကတ်များ၏ အလင်းကို အရင်ပိတ်မည်
+      cards.forEach(c => c.classList.remove('active-glow'));
+
+      // နှိပ်လိုက်သော ကတ်ကို အလင်းဖွင့်ပေးမည် (လင်းနေပြီးသားဆိုလျှင် ပြန်ပိတ်မည်)
+      if (!isAlreadyGlowing) {
+        card.classList.add('active-glow');
+      }
+    });
+  });
+});
