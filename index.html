@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAMANYA FOOD HOUSE | Traditional Myanmar Cuisine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+Myanmar:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <img src="images/logo.png" alt="Ramanya Logo" class="brand-logo" onerror="this.style.display='none'">
+    <div class="brand-subtitle">Traditional Myanmar Cuisine • Bangkok</div>
+    <h1>RAMANYA <span>FOOD HOUSE</span></h1>
+    <p>မြန်မာထမင်းဟင်း • မုန့်ဟင်းခါး • ရှမ်းခေါက်ဆွဲ • အုန်းနို့ခေါက်ဆွဲ • အကြော်အလှော်နှင့် အသုပ်စုံ</p>
+  </header>
+
+  <!-- Search & Category Filter -->
+  <div class="controls-wrapper">
+    <div class="search-box">
+      <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="🔍 အစားအသောက် အမည် ရှာဖွေရန် (ဥပမာ - မုန့်ဟင်းခါး / Mohinga)..." />
+    </div>
+
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="setCategory('all', this)">အားလုံး (All)</button>
+      <button class="filter-btn" onclick="setCategory('noodle', this)">Noodles & Main</button>
+      <button class="filter-btn" onclick="setCategory('rice', this)">Rice (ထမင်း)</button>
+      <button class="filter-btn" onclick="setCategory('salad', this)">Salads (အသုပ်စုံ)</button>
+      <button class="filter-btn" onclick="setCategory('fried', this)">Fried & Hot (အကြော်/ဟော့ချို)</button>
+      <button class="filter-btn" onclick="setCategory('drink', this)">Drinks (အအေး)</button>
+    </div>
+  </div>
+
+  <!-- Menu Grid -->
+  <main class="menu-container" id="menuGrid">
+
+    <!-- ================= NOODLES & MAIN ================= -->
+    <div class="menu-card" data-category="noodle">
+      <div class="image-wrapper">
+        <img src="images/mohinga.jpg" alt="မုန့်ဟင်းခါး" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Mohinga'">
+        <span class="badge">Noodles & Main</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">မုန့်ဟင်းခါး</h2>
+          <p class="food-en">Mohinga</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ပုံမှန် / အထူး</span>
+          <span class="price">฿50 / ฿60</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="noodle">
+      <div class="image-wrapper">
+        <img src="images/coconut-noodle.jpg" alt="အုန်းနို့ခေါက်ဆွဲ" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Coconut+Noodle+Soup'">
+        <span class="badge">Noodles & Main</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">အုန်းနို့ခေါက်ဆွဲ</h2>
+          <p class="food-en">Coconut Noodle Soup</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿60</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="noodle">
+      <div class="image-wrapper">
+        <img src="images/nan-gyi-thoke.jpg" alt="နန်းကြီးသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Nan+Gyi+Thoke'">
+        <span class="badge">Noodles & Main</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">နန်းကြီးသုပ်</h2>
+          <p class="food-en">Nan Gyi Thoke</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿60</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="noodle">
+      <div class="image-wrapper">
+        <img src="images/shan-noodles.jpg" alt="ရှမ်းခေါက်ဆွဲ" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Shan+Noodles'">
+        <span class="badge">Noodles & Main</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ရှမ်းခေါက်ဆွဲ</h2>
+          <p class="food-en">Shan Noodles</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="noodle">
+      <div class="image-wrapper">
+        <img src="images/oil-noodles.jpg" alt="ဆီချက်ခေါက်ဆွဲ" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Oil+Noodles'">
+        <span class="badge">Noodles & Main</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ဆီချက်ခေါက်ဆွဲ</h2>
+          <p class="food-en">Oil Noodles</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= RICE ================= -->
+    <div class="menu-card" data-category="rice">
+      <div class="image-wrapper">
+        <img src="images/boiled-beans.jpg" alt="ပဲပြုတ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Boiled+Beans'">
+        <span class="badge">Rice</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ပဲပြုတ်</h2>
+          <p class="food-en">Boiled Beans</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿30</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="rice">
+      <div class="image-wrapper">
+        <img src="images/rice-beans-oil.jpg" alt="ပဲပြုတ်ထမင်း ဆီဆမ်း" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Rice+with+Beans+%26+Oil'">
+        <span class="badge">Rice</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ပဲပြုတ်ထမင်း ဆီဆမ်း</h2>
+          <p class="food-en">Rice with Beans & Oil</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ပုံမှန် / အထူး</span>
+          <span class="price">฿60 / ฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="rice">
+      <div class="image-wrapper">
+        <img src="images/fried-rice-beans.jpg" alt="ပဲပြုတ်ထမင်းကြော်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Fried+Rice+with+Beans'">
+        <span class="badge">Rice</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ပဲပြုတ်ထမင်းကြော်</h2>
+          <p class="food-en">Fried Rice with Beans</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ပုံမှန် / အထူး</span>
+          <span class="price">฿70 / ฿80</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SALADS ================= -->
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/tea-leaf-salad.jpg" alt="လဖက်သုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Tea+Leaf+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">လဖက်သုပ်</h2>
+          <p class="food-en">Tea Leaf Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/tea-leaf-rice.jpg" alt="လဖက်ထမင်း" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Tea+Leaf+Rice'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">လဖက်ထမင်း</h2>
+          <p class="food-en">Tea Leaf Rice</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ပုံမှန် / အထူး</span>
+          <span class="price">฿70 / ฿80</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/zalun-rice-salad.jpg" alt="ဇလုံထမင်းသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Zalun+Rice+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ဇလုံထမင်းသုပ်</h2>
+          <p class="food-en">Zalun Rice Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ပုံမှန် / အထူး</span>
+          <span class="price">฿80 / ฿90</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/mixed-salad.jpg" alt="အစုံသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Mixed+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">အစုံသုပ်</h2>
+          <p class="food-en">Mixed Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/noodle-salad.jpg" alt="ခေါက်ဆွဲသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Noodle+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ခေါက်ဆွဲသုပ်</h2>
+          <p class="food-en">Noodle Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/rice-noodle-salad.jpg" alt="မုန့်ဖတ်သုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Rice+Noodle+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">မုန့်ဖတ်သုပ်</h2>
+          <p class="food-en">Rice Noodle Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/fermented-bean-rice.jpg" alt="ပုန်းရည်ကြီးထမင်းသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Fermented+Bean+Rice+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ပုန်းရည်ကြီးထမင်းသုပ်</h2>
+          <p class="food-en">Fermented Bean Rice Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ပုံမှန် / အထူး</span>
+          <span class="price">฿70 / ฿80</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/fish-cake-salad.jpg" alt="ငါးဖယ်သုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Fish+Cake+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ငါးဖယ်သုပ်</h2>
+          <p class="food-en">Fish Cake Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/ginger-salad.jpg" alt="ဂျင်းသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Ginger+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ဂျင်းသုပ်</h2>
+          <p class="food-en">Ginger Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/pennywort-salad.jpg" alt="မြင်းခွာရွက်သုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Pennywort+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">မြင်းခွာရွက်သုပ်</h2>
+          <p class="food-en">Pennywort Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/lime-salad.jpg" alt="ရှောက်သီးသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Lime+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ရှောက်သီးသုပ်</h2>
+          <p class="food-en">Lime Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/century-egg-salad.jpg" alt="ဆေးဘဲဥသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Century+Egg+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ဆေးဘဲဥသုပ်</h2>
+          <p class="food-en">Century Egg Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/jelly-mushroom-salad.jpg" alt="ကျောက်ပွင့်သုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Jelly+Mushroom+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ကျောက်ပွင့်သုပ်</h2>
+          <p class="food-en">Jelly Mushroom Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/banana-blossom-salad.jpg" alt="ငှက်ပျောဖူးသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Banana+Blossom+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ငှက်ပျောဖူးသုပ်</h2>
+          <p class="food-en">Banana Blossom Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/tomato-salad.jpg" alt="ခရမ်းချဉ်သီးသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Tomato+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ခရမ်းချဉ်သီးသုပ်</h2>
+          <p class="food-en">Tomato Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/papaya-salad.jpg" alt="သင်္ဘောသီးသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Papaya+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">သင်္ဘောသီးသုပ်</h2>
+          <p class="food-en">Papaya Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/fish-salad.jpg" alt="ငါးနီတူသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Fish+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ငါးနီတူသုပ်</h2>
+          <p class="food-en">Fish Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="salad">
+      <div class="image-wrapper">
+        <img src="images/tofu-salad.jpg" alt="တို့ဟူးသုပ်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Tofu+Salad'">
+        <span class="badge">Salads</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">တို့ဟူးသုပ်</h2>
+          <p class="food-en">Tofu Salad</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿70</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= FRIED & HOT ================= -->
+    <div class="menu-card" data-category="fried">
+      <div class="image-wrapper">
+        <img src="images/fried-noodles.jpg" alt="ခေါက်ဆွဲကြော်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Fried+Noodles'">
+        <span class="badge">Fried & Hot</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ခေါက်ဆွဲကြော် (ကြက် / ဝက်)</h2>
+          <p class="food-en">Fried Noodles (Chicken / Pork)</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿110</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="fried">
+      <div class="image-wrapper">
+        <img src="images/fried-glass-noodles.jpg" alt="ကြာဇံကြော်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Fried+Glass+Noodles'">
+        <span class="badge">Fried & Hot</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ကြာဇံကြော် (ကြက် / ဝက်)</h2>
+          <p class="food-en">Fried Glass Noodles (Chicken / Pork)</p>
+        </div>
+        <div class="card-footer">
+          <span class="price-label">ဈေးနှုန်း</span>
+          <span class="price">฿110</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-category="fried">
+      <div class="image-wrapper">
+        <img src="images/kung-pao.jpg" alt="ကုန်းဘောင်ကြီးကြော်" onerror="this.src='https://placehold.co/600x400/24211e/dfc48c?text=Kung+Pao'">
+        <span class="badge">Fried & Hot</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2 class="food-title">ကုန်းဘောင်ကြီးကြော် 
