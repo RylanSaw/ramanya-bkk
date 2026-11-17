@@ -195,16 +195,13 @@ header h1 span {
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
 }
 
-/* Menu အကွက်ကို နှိပ်လိုက်သည့်အခါ နောက်ခံအလင်းတန်း လင်းပေးမည့် ဒီဇိုင်း */
+/* နှိပ်လိုက်သည့် အကွက်ကို အလင်းတန်း လင်းပေးခြင်း */
 .menu-card.active-glow {
   background: linear-gradient(155deg, #3e372e 0%, #2f2b27 100%);
   border-color: #fff2d6;
-  transform: translateY(-4px) scale(1.02);
   box-shadow:
     0 0 18px rgba(223, 196, 140, 0.85),
-    0 0 40px rgba(212, 155, 53, 0.5),
-    0 10px 24px rgba(0, 0, 0, 0.65);
-  z-index: 2;
+    0 0 40px rgba(212, 155, 53, 0.5);
 }
 
 .image-wrapper {
@@ -275,6 +272,136 @@ header h1 span {
   color: var(--gold-light);
 }
 
+/* ================= ENLARGED ZOOM CARD MODAL ================= */
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 13, 11, 0.84);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.zoom-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.zoom-card {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  background: linear-gradient(160deg, #3b342c 0%, #26221e 100%);
+  border: 2px solid var(--gold-light);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 0 28px rgba(223, 196, 140, 0.55),
+    0 20px 50px rgba(0, 0, 0, 0.85);
+  transform: scale(0.72);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.zoom-overlay.show .zoom-card {
+  transform: scale(1);
+}
+
+.zoom-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(28, 25, 23, 0.9);
+  color: var(--gold-light);
+  border: 1.5px solid var(--gold-light);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.zoom-close:hover {
+  background: var(--gold-light);
+  color: var(--header-bg);
+}
+
+.zoom-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 245px;
+  background-color: #1c1917;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.zoom-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-size: 0.75rem;
+  background: rgba(28, 25, 23, 0.92);
+  color: var(--gold-light);
+  border: 1px solid var(--gold-light);
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.zoom-body {
+  padding: 1.35rem;
+}
+
+.zoom-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
+}
+
+.zoom-en {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.15rem;
+}
+
+.zoom-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(223, 196, 140, 0.25);
+  padding-top: 0.85rem;
+}
+
+.zoom-price-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.zoom-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
 /* ဖုန်းမျက်နှာပြင်တွင် ၃ ကွက်တန်းစီပြီး သပ်သပ်ရပ်ရပ် အချိုးကျစေရန် ညှိပေးခြင်း */
 @media (max-width: 650px) {
   header h1 {
@@ -326,6 +453,10 @@ header h1 span {
 
   .price {
     font-size: 0.84rem;
+  }
+
+  .zoom-image-wrapper {
+    height: 220px;
   }
 }
 
