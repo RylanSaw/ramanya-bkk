@@ -182,7 +182,7 @@ header h1 span {
   overflow: hidden;
   border: 1px solid var(--border-gold);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -197,12 +197,13 @@ header h1 span {
 
 /* Menu အကွက်ကို နှိပ်လိုက်သည့်အခါ နောက်ခံအလင်းတန်း လင်းပေးမည့် ဒီဇိုင်း */
 .menu-card.active-glow {
-  border-color: #fff0cc;
+  background: linear-gradient(155deg, #3e372e 0%, #2f2b27 100%);
+  border-color: #fff2d6;
   transform: translateY(-4px) scale(1.02);
   box-shadow:
-    0 0 18px rgba(223, 196, 140, 0.8),
-    0 0 38px rgba(212, 155, 53, 0.45),
-    0 10px 24px rgba(0, 0, 0, 0.6);
+    0 0 18px rgba(223, 196, 140, 0.85),
+    0 0 40px rgba(212, 155, 53, 0.5),
+    0 10px 24px rgba(0, 0, 0, 0.65);
   z-index: 2;
 }
 
@@ -295,7 +296,7 @@ header h1 span {
   }
 
   .badge {
-    display: none; /* ဖုန်းတွင် ပုံကို မကွယ်စေရန် အပေါ်တံဆိပ်လေး ဖျောက်ထားမည် */
+    display: none;
   }
 
   .card-body {
@@ -320,7 +321,7 @@ header h1 span {
   }
 
   .price-label {
-    display: none; /* ဖုန်းတွင် ဈေးနှုန်းဂဏန်း တစ်ခုတည်း ရှင်းရှင်းလင်းလင်း ပြမည် */
+    display: none;
   }
 
   .price {
@@ -365,4 +366,19 @@ footer strong {
   background: var(--gold-light);
   color: var(--header-bg);
   transform: translateY(-1px);
+}
+
+/* Visitor Counter Badge */
+.visitor-counter {
+  margin-top: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visitor-counter img {
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
