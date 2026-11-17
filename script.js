@@ -14,7 +14,8 @@ function setCategory(category, button) {
 
 // Search Bar နှင့် Category တွဲဖက်စစ်ထုတ်ခြင်း
 function applyFilters() {
-  const searchText = document.getElementById('searchInput').value.toLowerCase();
+  const searchInput = document.getElementById('searchInput');
+  const searchText = searchInput ? searchInput.value.toLowerCase() : '';
   const cards = document.querySelectorAll('.menu-card');
 
   cards.forEach(card => {
@@ -30,7 +31,7 @@ function applyFilters() {
 }
 
 // Menu အကွက်ကို နှိပ်သည့်အခါ နောက်ခံအလင်းတန်း လင်းပေးခြင်း
-document.addEventListener('DOMContentLoaded', () => {
+function initMenuCards() {
   const cards = document.querySelectorAll('.menu-card');
 
   cards.forEach(card => {
@@ -46,4 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMenuCards);
+} else {
+  initMenuCards();
+}
