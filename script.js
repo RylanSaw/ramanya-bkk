@@ -30,6 +30,55 @@ function applyFilters() {
   });
 }
 
+// 4 second ခြားတစ်ခါ စက်ဝိုင်းအသေးမှ လေးထောင့်ပုံစံပြောင်းမည့် Top Notification
+function initTopNotification() {
+  const notif = document.getElementById('topNotif');
+  const notifIcon = document.getElementById('notifIcon');
+  const notifText = document.getElementById('notifText');
+  if (!notif || !notifText) return;
+
+  const messages = [
+    { icon: '🍜', text: 'မုန့်ဟင်းခါး ယနေ့ရပြီနော်' },
+    { icon: '🫘', text: 'ယနေ့ ပဲပြုတ်ရပြီ နော်' }
+  ];
+
+  let currentIndex = 0;
+
+  function playNotificationCycle() {
+    const item = messages[currentIndex];
+    if (notifIcon) notifIcon.innerText = item.icon;
+    notifText.innerText = item.text;
+
+    // 1. စက်ဝိုင်းအသေး ပေါ်လာမည်
+    notif.classList.remove('expanded');
+    notif.classList.add('circle-in');
+
+    // 2. ခဏအကြာတွင် စက်ဝိုင်းအသေးမှ လေးထောင့်ပုံစံသို့ ပြောင်းပြီး စာသားပေါ်လာမည်
+    setTimeout(() => {
+      notif.classList.add('expanded');
+    }, 450);
+
+    // 3. 4 second မပြည့်ခင် လေးထောင့်မှ စက်ဝိုင်းအသေးသို့ ပြန်ကျုံ့မည်
+    setTimeout(() => {
+      notif.classList.remove('expanded');
+    }, 3100);
+
+    // 4. စက်ဝိုင်းအသေး ပျောက်သွားမည်
+    setTimeout(() => {
+      notif.classList.remove('circle-in');
+    }, 3550);
+
+    // နောက်တစ်ကြိမ်အတွက် စာသားပြောင်းမည်
+    currentIndex = (currentIndex + 1) % messages.length;
+  }
+
+  // စာမျက်နှာပွင့်သည်နှင့် ပထမစာသား စပြမည်
+  playNotificationCycle();
+
+  // 4 second (4000ms) ခြားတစ်ခါ ထပ်ခါတလဲလဲ ပြသမည်
+  setInterval(playNotificationCycle, 4000);
+}
+
 // Menu အကွက်ကို နှိပ်သည့်အခါ ကြီးလာပြီး အလင်းတန်း လင်းပေးခြင်း
 function initMenuCards() {
   const cards = document.querySelectorAll('.menu-card');
@@ -89,8 +138,13 @@ function closeZoomCard(event) {
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initMenuCards);
-} else {
+function initAll() {
+  initTopNotification();
   initMenuCards();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
 }
