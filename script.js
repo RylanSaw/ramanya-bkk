@@ -38,7 +38,11 @@ function initTopNotification() {
   if (!notif || !notifText) return;
 
   const messages = [
-    { icon: '🍜', text: 'မုန့်ဟင်းခါး ယနေ့ရပြီနော်' },
+    { icon: '😎', text: 'ချက်မယ် ပြုတ်မယ် Ramanya food house နော် 😎😎' },
+    { icon: '💛', text: 'လာလည်ပါ ကွယ် ဖိတ်ခေါ်တယ် 😎😎' },
+    { icon: '🍜', text: 'မုန့်ဟင်းခါး ပူပူနွေးနွေးနဲ့ ပဲပြုတ်ထမင်း ဆီဆမ်း အနံ့လေးတွေတောင် ဒီဘက်ထိ မွှေးလာသလိုပဲ 😎🍜' },
+    { icon: '✨', text: 'ဘန်ကောက်ရောက် မြန်မာအစားအစာ ချစ်သူတွေအတွက်တော့ Ramanya Food House က ရှယ်နေရာလေး ဖြစ်နေပြီပေါ့။' },
+    { icon: '🍲', text: 'မုန့်ဟင်းခါး ယနေ့ရပြီနော်' },
     { icon: '🫘', text: 'ယနေ့ ပဲပြုတ်ရပြီ နော်' }
   ];
 
@@ -56,17 +60,17 @@ function initTopNotification() {
     // 2. ခဏအကြာတွင် စက်ဝိုင်းအသေးမှ လေးထောင့်ပုံစံသို့ ပြောင်းပြီး စာသားပေါ်လာမည်
     setTimeout(() => {
       notif.classList.add('expanded');
-    }, 450);
+    }, 400);
 
     // 3. 4 second မပြည့်ခင် လေးထောင့်မှ စက်ဝိုင်းအသေးသို့ ပြန်ကျုံ့မည်
     setTimeout(() => {
       notif.classList.remove('expanded');
-    }, 3100);
+    }, 3250);
 
     // 4. စက်ဝိုင်းအသေး ပျောက်သွားမည်
     setTimeout(() => {
       notif.classList.remove('circle-in');
-    }, 3550);
+    }, 3650);
 
     // နောက်တစ်ကြိမ်အတွက် စာသားပြောင်းမည်
     currentIndex = (currentIndex + 1) % messages.length;
